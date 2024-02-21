@@ -1,3 +1,6 @@
+function enemies (list: any[]) {
+	
+}
 scroller.setLayerImage(scroller.BackgroundLayer.Layer0, img`
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
@@ -486,3 +489,103 @@ scroller.setLayerImage(scroller.BackgroundLayer.Layer3, img`
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     `)
+scroller.scrollBackgroundWithSpeed(-10, 0, scroller.BackgroundLayer.Layer0)
+scroller.scrollBackgroundWithSpeed(-5, 0, scroller.BackgroundLayer.Layer1)
+scroller.scrollBackgroundWithSpeed(-20, 0, scroller.BackgroundLayer.Layer2)
+scroller.scrollBackgroundWithSpeed(-40, 0, scroller.BackgroundLayer.Layer3)
+let mySprite = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . f f f f f f . . . . 
+    . . . . f f 6 6 6 6 f 7 f . . . 
+    . . . f f 6 6 6 6 f 7 7 7 f . . 
+    . . . f 6 6 6 f f 6 6 6 6 f . . 
+    . . . f f f f 6 6 7 7 7 7 6 f . 
+    . . . f 6 7 7 7 f f f f 6 7 f . 
+    . . f f f f f f f 6 6 6 f f f . 
+    . . f f 6 8 8 6 b f 8 8 6 6 f . 
+    . . f 6 6 8 d 8 1 f d d 6 f . . 
+    . . . f 6 6 6 8 d d d d f . . . 
+    . . . . 8 d d 6 8 8 8 e f . . . 
+    . . . . 6 d d 6 7 7 7 7 f . . . 
+    . . . . f 6 6 f 8 8 5 5 f f . . 
+    . . . . f f f f f f f f f f . . 
+    . . . . . f f . . . f f f . . . 
+    `, SpriteKind.Player)
+animation.runImageAnimation(
+mySprite,
+[img`
+    . . . . . . f f f f f f . . . . 
+    . . . . f f 6 6 6 6 f 7 f . . . 
+    . . . f f 6 6 6 6 f 7 7 7 f . . 
+    . . . f 6 6 6 f f 6 6 6 6 f . . 
+    . . . f f f f 6 6 7 7 7 7 6 f . 
+    . . . f 6 7 7 7 f f f f 6 7 f . 
+    . . f f f f f f f 6 6 6 f f f . 
+    . . f f 6 8 8 6 b f 8 8 6 6 f . 
+    . . f 6 6 8 d 8 1 f d d 6 f . . 
+    . . . f 6 6 6 8 d d d d f . . . 
+    . . . . f f 6 6 8 8 8 6 f . . . 
+    . . . . . 8 d d 6 7 7 7 f . . . 
+    . . . . . 6 d d 6 7 7 7 f . . . 
+    . . . . . f 6 6 f 8 5 5 f . . . 
+    . . . . . . f f f f f f . . . . 
+    . . . . . . . f f f . . . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . f f f f f f . . . . 
+    . . . . f f 6 6 6 6 f 7 f . . . 
+    . . . f f 6 6 6 6 f 7 7 7 f . . 
+    . . . f 6 6 6 f f 6 6 6 6 f . . 
+    . . . f f f f 6 6 7 7 7 7 6 f . 
+    . . . f 6 7 7 7 f f f f 6 7 f . 
+    . . f f f f f f f 6 6 6 f f f . 
+    . . f f 6 8 8 6 b f 8 8 6 6 f . 
+    . . f 6 6 8 d 8 1 f d d 6 f . . 
+    . . . f 6 6 6 6 6 d d d f . . . 
+    . . . . . f 8 d d 6 8 6 f . . . 
+    . . . . . f 6 d d 6 7 7 f . . . 
+    . . . . f f f 6 6 f 5 5 f f . . 
+    . . . . f f f f f f f f f f . . 
+    . . . . . f f . . . f f f . . . 
+    `,img`
+    . . . . . . f f f f f f . . . . 
+    . . . . f f 6 6 6 6 f 7 f . . . 
+    . . . f f 6 6 6 6 f 7 7 7 f . . 
+    . . . f 6 6 6 f f 6 6 6 6 f . . 
+    . . . f f f f 6 6 7 7 7 7 6 f . 
+    . . . f 6 7 7 7 f f f f 6 7 f . 
+    . . f f f f f f f 6 6 6 f f f . 
+    . . f f 6 8 8 6 b f 8 8 6 6 f . 
+    . . f 6 6 8 d 8 1 f d d 6 f . . 
+    . . . f 6 6 6 8 d d d d f . . . 
+    . . . . f f 6 6 8 8 8 6 f . . . 
+    . . . . . 8 d d 6 7 7 7 f . . . 
+    . . . . . 6 d d 6 7 7 7 f . . . 
+    . . . . . f 6 6 f 6 5 5 f . . . 
+    . . . . . . f f f f f f . . . . 
+    . . . . . . . f f f . . . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . f f f f f f . . . . 
+    . . . . f f 6 6 6 6 f 7 f . . . 
+    . . . f f 6 6 6 6 f 7 7 7 f . . 
+    . . . f 6 6 6 f f 6 6 6 6 f . . 
+    . . . f f f f 6 6 7 7 7 7 6 f . 
+    . . . f 6 7 7 7 f f f f 6 7 f . 
+    . . f f f f f f f 6 6 6 f f f . 
+    . . f f 6 8 8 6 b f 8 8 6 6 f . 
+    . . f 6 6 8 d 8 1 f d d 6 f . . 
+    . . . f 6 6 6 8 d d d d f . . . 
+    . . . . 8 d d 6 8 8 8 6 f . . . 
+    . . . . 6 d d 6 7 7 7 7 f . . . 
+    . . . . f 6 6 f 8 8 5 5 f f . . 
+    . . . . f f f f f f f f f f . . 
+    . . . . . f f . . . f f f . . . 
+    `],
+200,
+true
+)
+controller.moveSprite(mySprite, 50, 50)
+let list = [0, 1]
+mySprite.setPosition(5, 95)
+mySprite.y = Math.min(100, Math.max(mySprite.y, 80))
