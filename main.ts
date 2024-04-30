@@ -7,7 +7,7 @@ namespace SpriteKind {
     export const right = SpriteKind.create()
 }
 scene.onHitWall(SpriteKind.Projectile, function (sprite3, location) {
-    if (sprite3.image.equals(assets.image`yellowdino`)) {
+    if (projectileene.image.equals(assets.image`purpdino`) || projectileene.image.equals(assets.image`yellowdino`)) {
         info.changeLifeBy(-1)
         sprites.destroy(sprite3)
     } else {
@@ -48,7 +48,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     box = sprites.create(assets.image`hitbox`, SpriteKind.hitbox)
     for (let value of sprites.allOfKind(SpriteKind.Projectile)) {
         if (mySprite.overlapsWith(value)) {
-            if (value.image.equals(assets.image`purpdino`)) {
+            if (value.image.equals(assets.image`purpdino`) || value.image.equals(assets.image`yellowdino`)) {
                 sprites.destroy(value, effects.spray, 100)
             } else {
                 sprites.destroy(value, effects.spray, 100)
@@ -63,10 +63,10 @@ sprites.onCreated(SpriteKind.hitbox, function (sprite) {
     sprites.destroy(sprite)
 })
 let box: Sprite = null
-let projectileene: Sprite = null
 let initialpos = 0
 let projectile_kind = 0
 let list2: Image[] = []
+let projectileene: Sprite = null
 let num = 0
 let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`freedom`)
@@ -83,4 +83,5 @@ game.onUpdateInterval(1000, function () {
         game.gameOver(false)
     }
     spawndino(difff)
+    info.changeScoreBy(1)
 })
