@@ -207,24 +207,7 @@ let num = 0
 let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 info.setLife(10)
-mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
+mySprite = sprites.create(assets.image`MYSPRITE`, SpriteKind.Player)
 mySprite.setStayInScreen(true)
 controller.moveSprite(mySprite, 0, 200)
 mySprite.x = 35
